@@ -1,9 +1,30 @@
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
 import AutoArea
+import csv
 import tkinter as tk
 import tkinter.messagebox as tkm
 
+
+with open('parameter.csv', 'r') as fr:
+    reader = csv.reader(fr)
+    line = [row for row in reader]
+
+scale = line[0][1]
+ext = line[1][1]
+name = line[2][1]
+HSV_hu = line[3][1]
+HSV_su = line[4][1]
+HSV_vu = line[5][1]
+HSV_hl = line[6][1]
+HSV_sl = line[7][1]
+HSV_vl = line[8][1]
+cl = line[9][1]
+gauk = line[10][1]
+gaun = line[11][1]
+closing_on = line[12][1]
+
+# GUI parameter
 win_x = 600
 win_y = 450
 box_w = 8
@@ -37,6 +58,21 @@ def get_value(event):
     gauk = int(E_gauk.get())
     gaun = int(E_gaun.get())
     closing_on = Val.get()
+    with open('parameter.csv', 'w') as fw:
+        writer = csv.writer(fw)
+        writer.writerow(["scale", scale])
+        writer.writerow(["ext", ext])
+        writer.writerow(["name", name])
+        writer.writerow(["HSV_hu", HSV_hu])
+        writer.writerow(["HSV_su", HSV_su])
+        writer.writerow(["HSV_vu", HSV_vu])
+        writer.writerow(["HSV_hu", HSV_hl])
+        writer.writerow(["HSV_su", HSV_sl])
+        writer.writerow(["HSV_vu", HSV_vl])
+        writer.writerow(["cl", cl])
+        writer.writerow(["gauk", gauk])
+        writer.writerow(["gaun", gaun])
+        writer.writerow(["closing_on", closing_on])
     fulltime = AutoArea.main(scale, ext, name, HSV_u,
                              HSV_l, cl, gauk, gaun, closing_on)
     tkm.showinfo('info', '>>> complete {0:.2f} sec <<<'.format(fulltime))
@@ -53,21 +89,21 @@ Button.place(x=300, y=20)
 S_scale = tk.Label(text=u'Scale Transration')
 S_scale.place(x=x1, y=y_set)
 E_scale = tk.Entry(width=box_w)
-E_scale.insert(tk.END, u'28.3889')
+E_scale.insert(tk.END, u'{0}'.format(scale))
 E_scale.place(x=x2, y=y_set)
 
 y_set += y_m
 S_ext = tk.Label(text=u'Extension')
 S_ext.place(x=x1, y=y_set)
 E_ext = tk.Entry(width=box_w)
-E_ext.insert(tk.END, u'.jpg')
+E_ext.insert(tk.END, u'{0}'.format(ext))
 E_ext.place(x=x2, y=y_set)
 
 y_set += y_m
 S_name = tk.Label(text=u'Folder name')
 S_name.place(x=x1, y=y_set)
 E_name = tk.Entry(width=box_w)
-E_name.insert(tk.END, u'photo')
+E_name.insert(tk.END, u'{0}'.format(name))
 E_name.place(x=x2, y=y_set)
 
 y_set += y_l
@@ -87,30 +123,30 @@ S_HSV_upper.place(x=x1, y=y_upper)
 S_HSV_lower.place(x=x1, y=y_lower)
 
 E_HSV_hu = tk.Entry(width=box_w)
-E_HSV_hu.insert(tk.END, u'76')
+E_HSV_hu.insert(tk.END, u'{0}'.format(HSV_hu))
 E_HSV_hu.place(x=x2, y=y_upper)
 E_HSV_su = tk.Entry(width=box_w)
-E_HSV_su.insert(tk.END, u'255')
+E_HSV_su.insert(tk.END, u'{0}'.format(HSV_su))
 E_HSV_su.place(x=x3, y=y_upper)
 E_HSV_vu = tk.Entry(width=box_w)
-E_HSV_vu.insert(tk.END, u'255')
+E_HSV_vu.insert(tk.END, u'{0}'.format(HSV_vu))
 E_HSV_vu.place(x=x4, y=y_upper)
 
 E_HSV_hl = tk.Entry(width=box_w)
-E_HSV_hl.insert(tk.END, u'22')
+E_HSV_hl.insert(tk.END, u'{0}'.format(HSV_hl))
 E_HSV_hl.place(x=x2, y=y_lower)
 E_HSV_sl = tk.Entry(width=box_w)
-E_HSV_sl.insert(tk.END, u'90')
+E_HSV_sl.insert(tk.END, u'{0}'.format(HSV_sl))
 E_HSV_sl.place(x=x3, y=y_lower)
 E_HSV_vl = tk.Entry(width=box_w)
-E_HSV_vl.insert(tk.END, u'90')
+E_HSV_vl.insert(tk.END, u'{0}'.format(HSV_vl))
 E_HSV_vl.place(x=x4, y=y_lower)
 
 y_set += + 2 * y_m + y_l
 S_cl = tk.Label(text=u'Closing kernel (Odd)')
 S_cl.place(x=x1, y=y_set)
 E_cl = tk.Entry(width=box_w)
-E_cl.insert(tk.END, u'19')
+E_cl.insert(tk.END, u'{0}'.format(cl))
 E_cl.place(x=x2, y=y_set)
 
 # extra contents
@@ -122,18 +158,18 @@ y_set += y_m
 S_gauk = tk.Label(text=u'Gauss kernel (Odd)')
 S_gauk.place(x=x1, y=y_set)
 E_gauk = tk.Entry(width=box_w)
-E_gauk.insert(tk.END, u'15')
+E_gauk.insert(tk.END, u'{0}'.format(gauk))
 E_gauk.place(x=x2, y=y_set)
 
 S_gaun = tk.Label(text=u'Gauss number (Odd)')
 S_gaun.place(x=x3, y=y_set)
 E_gaun = tk.Entry(width=box_w)
-E_gaun.insert(tk.END, u'3')
+E_gaun.insert(tk.END, u'{0}'.format(gaun))
 E_gaun.place(x=x4, y=y_set)
 
 y_set += y_m
 Val = tk.BooleanVar()
-Val.set(True)
+Val.set(closing_on)
 CheckBox = tk.Checkbutton(text=u"Closing ON", variable=Val)
 CheckBox.place(x=x1, y=y_set)
 
