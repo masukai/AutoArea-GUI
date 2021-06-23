@@ -58,7 +58,7 @@ def get_value(event):
     gauk = int(E_gauk.get())
     gaun = int(E_gaun.get())
     closing_on = Val.get()
-    with open('parameter.csv', 'w') as fw:
+    with open('parameter.csv', 'w', newline="") as fw:
         writer = csv.writer(fw)
         writer.writerow(["scale", scale])
         writer.writerow(["ext", ext])
