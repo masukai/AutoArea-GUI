@@ -36,6 +36,7 @@ please set your pictures in which you want to calculate areas in the **photo(YOU
 I saved 2 sample pictures. If you want to calculate your data (pictures), please delete my samples.
 
 ### Second Step
+
 Move to _AutoArea_ directory and type below,
 
 ```
@@ -55,6 +56,7 @@ Finally, you will gain the results in the **photo_calculated_area.csv** file.
 The parameters are stored in the **parameter.csv** file and will be quoted when you use **AutoArea-GUI** again.
 
 ### Third Step
+
 If you do not want to use the GUI mode, please type below.
 
 ```
