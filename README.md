@@ -3,6 +3,8 @@
 This **AutoArea-GUI** can calculate something's area in each picture repeatedly by Python 3 (3.8.6) instead of [ImageJ](https://imagej.nih.gov/ij/).
 **AutoArea-GUI** is also the GUI version of [AutoArea](https://github.com/masukai/AutoArea).
 
+2021.12.14: On Windows OS, I have received a report that the first line "#! /usr/bin/env python" in all python files can sometimes cause problems. Please remove it and try to run the file.
+
 ## Dependencies
 
 - Numpy (1.19.5)
@@ -37,7 +39,7 @@ I saved 2 sample pictures. If you want to calculate your data (pictures), please
 
 ### Second Step
 
-Move to _AutoArea_ directory and type below,
+<font color="Red">Move to _AutoArea-GUI_ directory</font> and type below,
 
 ```
 python(3) gui.py
@@ -57,7 +59,7 @@ The parameters are stored in the **parameter.csv** file and will be quoted when 
 
 ### Third Step
 
-If you do not want to use the GUI mode, please type below.
+If you do not want to use the GUI mode, please <font color="Red">move to _AutoArea-GUI_ directory</font> and type below.
 
 ```
 python(3) AutoArea.py
