@@ -39,7 +39,7 @@ I saved 2 sample pictures. If you want to calculate your data (pictures), please
 
 ### Second Step
 
-<font color="Red">Move to _AutoArea-GUI_ directory</font> and type below,
+Move to _AutoArea-GUI_ directory and type below,
 
 ```
 python(3) gui.py
@@ -59,7 +59,7 @@ The parameters are stored in the **parameter.csv** file and will be quoted when 
 
 ### Third Step
 
-If you do not want to use the GUI mode, please <font color="Red">move to _AutoArea-GUI_ directory</font> and type below.
+If you do not want to use the GUI mode, please move to _AutoArea-GUI_ directory and type below.
 
 ```
 python(3) AutoArea.py
