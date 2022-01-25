@@ -1,3 +1,7 @@
+This document was written by Kaito Masuda (masukai9612kf@gmail.com)
+
+---
+
 # AutoArea-GUI
 
 This **AutoArea-GUI** can calculate something's area in each picture repeatedly by Python 3 (3.8.6) instead of [ImageJ](https://imagej.nih.gov/ij/).
